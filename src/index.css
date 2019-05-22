@@ -1,0 +1,100 @@
+body {
+    /* flex: 1;
+    flex-direction: column;
+    justify-content: center; */
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 20px;
+    background: rgb(241, 201, 70);
+  }
+  
+  ol, ul {
+    padding-left: 30px;
+  }
+
+  #header {
+    text-align: center;
+    width: 435px;
+    border: 10px solid rgb(110, 95, 9);
+    border-radius: 20px;
+    height: 70px;
+    background: black;
+    font-size: 55px;
+    color: rgb(223, 219, 183);
+    border-bottom: 5px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+
+  #board {
+    width: 455px;
+    height: 625px;
+    background: rgb(110, 95, 9);
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -223px;
+    margin-top: -343px;
+  }
+  
+  .board-row {
+    clear: both;
+    content: "";
+    display: table;
+  }
+
+  .square {
+    background: rgba(214, 187, 143, 0.986);
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 100px;
+    margin-left: 11px;
+    margin-top: 11px;
+    padding: 0;
+    text-align: center;
+    width: 100px;
+    border-radius: 5px;
+  }
+
+  .active-square {
+    flex-direction: column;
+    background: rgb(226, 160, 83);
+    float: left;
+    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    line-height: 34px;
+    height: 100px;
+    margin-left: 11px;
+    margin-top: 11px;
+    /* padding: 0; */
+    text-align: center;
+    width: 100px;
+    border-radius: 5px;
+  }
+
+  .score-board {
+    font-size: 50px;
+    background: rgb(238, 217, 160);
+    width: 435px;
+    height: 70px;
+    border-radius: 20px;
+    text-align: center;
+    border: 10px solid rgb(110, 95, 9);
+  }
+
+  .restart-button {
+    font-size: 20px;
+    font-weight: bold;
+    color: aliceblue;
+    text-align: center;
+    background: rgb(51, 6, 212);
+    height: 40px;
+    width: 300px;
+    border-radius: 10px;
+    margin-left: 80px;
+    margin-top:10px;
+  }
