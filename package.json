@@ -1,5 +1,5 @@
 {
-  "name": "demo-react",
+  "name": "react-simple2048",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
