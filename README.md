@@ -1,4 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<image src="https://github.com/ruihuasui/simple2048/blob/master/public/favicon.ico"/><br/>
+Enjoy the [Simple 2048](http://ruihuasui.github.io/simple2048) on computers and mobiles!
+<image src="https://github.com/ruihuasui/simple2048/blob/master/public/simple2048-demo.png"/><br/>
+
+The [index.css](https://github.com/ruihuasui/simple2048/blob/master/src/index.css) file is a small clone of [gabrielecirulli/2048](https://github.com/gabrielecirulli/2048).
 
 ## Available Scripts
 
