@@ -1,0 +1,253 @@
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<style>
+  .trans-title {
+    color: rgb(0, 128, 128);
+  }
+  .trans-search {
+    margin-left: 30%;
+  }
+  .trans-box {
+    width: 50%; 
+    height: 350px;
+    margin-left: 2rem;
+  }
+  .qa-box {
+    margin-left: 1rem;
+    width: 40%;
+  }
+  .question {
+    margin-top: 1.5rem;
+    color: rgb(0, 119, 119);
+  }
+  .inline {
+    display: inline;
+  }
+  .highlight {
+    background-color: yellow;
+  }
+  .submit-btn {
+    margin: 1rem 0 5rem 85%;
+  }
+  .none-check-box {
+    margin-top: 0.3rem;
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    border: 1px solid grey;
+    border-radius: 5px;
+  }
+</style>
+
+
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<nav id="nav-tool" class="navbar bg-light navbar-inverse navbar-sticky-top">
+  <div class="navbar-header">
+    <a class="navbar-brand text-info font-weight-bold">ClassTranscribe</a>
+  </div>
+</nav>
+  
+<crowd-form answer-format="flatten-objects">
+  <!-- instruction -->
+  <crowd-instructions link-text="View instructions" link-type="button">
+    <short-summary>
+      <p>Provide a brief instruction here</p>
+    </short-summary>
+
+    <detailed-instructions>
+      <h3>Provide more detailed instructions here</h3>
+      <p>Include additional information</p>
+    </detailed-instructions>
+
+    <positive-example>
+      <p>Provide an example of a good answer here</p>
+      <p>Explain why it's a good answer</p>
+    </positive-example>
+
+    <negative-example>
+      <p>Provide an example of a bad answer here</p>
+      <p>Explain why it's a bad answer</p>
+    </negative-example>
+  </crowd-instructions>
+
+<!-- transcription 1 -->
+    <h2 class="trans-title">&emsp;&emsp;Transcription 1</h2>
+    <div class="ui search trans-search t1">
+      <div class="ui icon input">
+        <input class="prompt" type="text" placeholder="Search keywords here...">
+        <i class="search icon"></i>
+      </div>
+      <div class="results"></div>
+    </div>
+    <div class="row">
+      <iframe id="t1" src="https://ruihuasui.github.io/_files/transcriptions/file1.txt" class="trans-box t1" type="text/plain"></iframe>
+      <div class="card bg-light qa-box">
+        <p class="question"><strong>Q1&emsp;</strong>Pineapple is blue? (check box below if yes)</p>
+        <crowd-checkbox name="t1q1" value="yes"></crowd-checkbox>
+        <div class="none-check-box">
+          <p>Check the box below if the question is not explained in the transcription.</p>
+          <crowd-checkbox class="inline" name="t1q1-not" value="no"></crowd-checkbox>
+        </div>
+
+        <p class="question"><strong>Q2&emsp;</strong>You use threads instead of processes, when:</p>
+        <crowd-radio-group allow-empty-selection>
+          <crowd-radio-button name="t1q2-1" value="no">You do not want to worry about race condition.</crowd-radio-button><br/>
+          <crowd-radio-button name="t1q2-2" value="yes">You want shared variables between tasks.</crowd-radio-button><br/>
+          <crowd-radio-button name="t1q2-3" value="no">AAA BBB CCC</crowd-radio-button>
+        </crowd-radio-group>
+        <div class="none-check-box">
+          <p>Check the box below if the question is not explained in the transcription.</p>
+          <crowd-checkbox class="inline" name="t1q2-not" value="no"></crowd-checkbox>
+        </div>
+
+        <p class="question"><strong>Q3&emsp;</strong>C Language is a native language of Illinois? (turn on the button below if yes)</p>
+        <crowd-toggle-button name="t1q3" value="no"></crowd-toggle-button>
+        <div class="none-check-box">
+          <p>Check the box below if the question is not explained in the transcription.</p>
+          <crowd-checkbox class="inline" name="t1q3-not" value="no"></crowd-checkbox>
+        </div>
+      </div>  
+    </div>
+
+<!-- transcription 2 -->    
+    <h2 class="trans-title">&emsp;&emsp;Transcription 2</h2>
+    <div class="row">
+      <iframe src="https://ruihuasui.github.io/_files/transcriptions/file2.txt" class="trans-box" type="text/plain"></iframe>
+
+      <div class="card bg-light qa-box">
+        <p class="question"><strong>Q1&emsp;</strong>MKMKMKMK is sfdfsdfmlsd? (check box below if yes)</p>
+        <crowd-checkbox name="t2q1" value="yes"></crowd-checkbox>
+        <div class="none-check-box">
+          <p>Check the box below if the question is not explained in the transcription.</p>
+          <crowd-checkbox class="inline" name="t2q1-not" value="no"></crowd-checkbox>
+        </div>
+
+        <p class="question"><strong>Q2&emsp;</strong>msldkmsmldf sde?</p>
+        <crowd-radio-group allow-empty-selection>
+          <crowd-radio-button name="t2q2-1" value="no">Yamslde aldmed dmflskemf efmlwefwefee.</crowd-radio-button>
+          <crowd-radio-button name="t2q2-2" value="yes">amskdm dsom KMkas  d#mdam $$ kmd.</crowd-radio-button>
+        </crowd-radio-group>
+        <div class="none-check-box">
+          <p>Check the box below if the question is not explained in the transcription.</p>
+          <crowd-checkbox class="inline" name="t2q2-not" value="no"></crowd-checkbox>
+        </div>
+
+        <p class="question"><strong>Q3&emsp;</strong>C La dddngumalsmd dsdc ddd? (check box below if yes)</p>
+        <crowd-toggle-button name="t2q3" value="no"></crowd-toggle-button>
+        <div class="none-check-box">
+          <p>Check the box below if the question is not explained in the transcription.</p>
+          <crowd-checkbox class="inline" name="t2q3-not" value="no"></crowd-checkbox>
+        </div>
+      </div>  
+    </div>
+    <crowd-button class="submit-btn btn-ouline-danger" form-action="submit">Submit</crowd-button>
+</crowd-form>
+    
+<script>
+    var content = [
+      { title: 'Andorra' },
+      { title: 'United Arab Emirates' },
+      { title: 'Afghanistan' },
+      { title: 'Antigua' },
+      { title: 'Anguilla' },
+      { title: 'Albania' },
+      { title: 'Armenia' },
+      { title: 'Netherlands Antilles' },
+      { title: 'Angola' },
+      { title: 'Argentina' },
+      { title: 'American Samoa' },
+      { title: 'Austria' },
+      { title: 'Australia' },
+      { title: 'Aruba' },
+      { title: 'Aland Islands' },
+      { title: 'Azerbaijan' },
+      { title: 'Bosnia' },
+      { title: 'Barbados' },
+      { title: 'Bangladesh' },
+      { title: 'Belgium' },
+      { title: 'Burkina Faso' },
+      { title: 'Bulgaria' },
+      { title: 'Bahrain' },
+      { title: 'Burundi' }
+      // etc
+    ];
+
+    function highlight(text, id) {
+      var inputText = document.getElementById(id);
+      var innerHTML = inputText.innerHTML;
+      var lowercase = innerHTML.toLowerCase();
+      var index = innerHTML.indexOf(text);
+      if (index >= 0) { 
+        innerHTML = innerHTML.substring(0,index) + "<span class='highlight'>" + innerHTML.substring(index,index+text.length) + "</span>" + innerHTML.substring(index + text.length);
+        inputText.innerHTML = innerHTML;
+      }
+    }
+
+    function stringToSearchContent(string) {
+      var array = string.split(" ").sort();
+      var content = [];
+      for (let i = 0; i < array.length; i++) {
+        content.push({title: array[i]});
+      }
+      return content;
+    }
+
+    var trans1 = stringToSearchContent("Threads will share the same address space, variables, heap, file descriptors and etc. You will not want to use thread if you do not want to care about race condition. Apple is red and pineapple is blue.");
+             
+  
+    $('.ui.search.t1')
+      .search({
+        source: trans1,
+        onSelect: v => searchAndHighlight(v, )
+      })
+    ;
+
+    function searchAndHighlight(value, selector) {
+      searchTerm = value.title;
+    if(value) {
+        //var wholeWordOnly = new RegExp("\\g"+searchTerm+"\\g","ig"); //matches whole word only
+        var anyCharacter = new RegExp("\\g["+searchTerm+"]\\g","ig"); //matches any word with any of search chars characters
+        var selector = selector || "body";                             //use body as selector if none provided
+        var valueRegEx = new RegExp(searchTerm,"ig");
+        var matches = $(selector).text().match(valueRegEx);
+        if(matches) {
+            $('.highlight').removeClass('highlight');     //Remove old search highlights
+                $(selector).html($(selector).html()
+                    .replace(valueRegEx, "<span class='highlight'>"+searchTerm+"</span>"));
+            if($('.highlight:first').length) {             //if match found, scroll to where the first one appears
+                $(window).scrollTop($('.highlight:first').position().top);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+$(document).ready(function() {
+    $('#search-button').on("click",function() {
+        if(!searchAndHighlight($('#search-term').val())) {
+            alert("No results found");
+        }
+    });
+});
+  </script>
